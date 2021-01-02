@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-grocerylist-dev-174812-authRole",
+            "UnauthRoleArn": "arn:aws:iam::716949790370:role/amplify-grocerylist-dev-174812-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::716949790370:role/amplify-grocerylist-dev-174812-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-grocerylist-dev-174812-deployment",
+            "UnauthRoleName": "amplify-grocerylist-dev-174812-unauthRole",
+            "StackName": "amplify-grocerylist-dev-174812",
+            "StackId": "arn:aws:cloudformation:us-east-1:716949790370:stack/amplify-grocerylist-dev-174812/9b63bbf0-4d4c-11eb-9cdc-122a8762896b",
+            "AmplifyAppId": "d1sl69cbcrjjra"
+        }
+    }
+}
