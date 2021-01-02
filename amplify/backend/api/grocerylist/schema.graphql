@@ -1,0 +1,8 @@
+type Item @model {
+  id: ID!
+  name: String!
+  note: String
+  location: String
+  cost: Float
+  added: Boolean
+}
