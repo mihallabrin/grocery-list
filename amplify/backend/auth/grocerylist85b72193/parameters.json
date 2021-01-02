@@ -1,6 +1,6 @@
 {
     "identityPoolName": "grocerylist85b72193_identitypool_85b72193",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "grocer85b72193",
     "userPoolName": "grocerylist85b72193_userpool_85b72193",
     "autoVerifiedAttributes": [

@@ -1,0 +1,21 @@
+{
+    "appName": "grocerylist",
+    "roleName": "pinpointLambdaRole843db9f8",
+    "cloudformationPolicyName": "cloudformationPolicy843db9f8",
+    "cloudWatchPolicyName": "cloudWatchPolicy843db9f8",
+    "pinpointPolicyName": "pinpointPolicy843db9f8",
+    "authPolicyName": "pinpoint_amplify_843db9f8",
+    "unauthPolicyName": "pinpoint_amplify_843db9f8",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
