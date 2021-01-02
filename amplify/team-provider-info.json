@@ -10,6 +10,17 @@
             "StackName": "amplify-grocerylist-dev-174812",
             "StackId": "arn:aws:cloudformation:us-east-1:716949790370:stack/amplify-grocerylist-dev-174812/9b63bbf0-4d4c-11eb-9cdc-122a8762896b",
             "AmplifyAppId": "d1sl69cbcrjjra"
+        },
+        "categories": {
+            "auth": {
+                "grocerylist85b72193": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d1sl69cbcrjjra",
+                    "type": "manual"
+                }
+            }
         }
     }
 }
