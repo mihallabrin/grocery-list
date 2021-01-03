@@ -25,19 +25,10 @@ const GroceryForm = () => {
   const classes = useStyles();
   const [data, setData] = useState({ ...initialState });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const snapshot: any = data;
-    const name = event.target.name;
-    const value = event.target.value;
-
-    snapshot[name] = value;
-    setData(snapshot);
-  };
-
   async function submitItem(): Promise<void> {
     try {
       await API.graphql(graphqlOperation(createItem, { input: data }));
-      setData(initialState);
+      setData({ ...initialState });
     } catch (error) {
       console.log('createItem', error);
     }
