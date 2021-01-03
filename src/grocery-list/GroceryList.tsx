@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listItems } from '../graphql/queries';
 import { onCreateItem } from '../graphql/subscriptions';
@@ -6,21 +6,27 @@ import { onCreateItem } from '../graphql/subscriptions';
 const GroceryList = () => {
   const [items, setItems] = useState<any[]>([]);
 
+  const onCreateItemCallback = useCallback(onCreateItemHandler, []);
+
   useEffect(() => {
     fetchItems();
-    const subscription = subscribeGraphQL(onCreateItem, onCreateItemHandler);
+    const createItemSub = subscribeGraphQL(onCreateItem, onCreateItemCallback);
 
-    return () => subscription.unsubscribe();
-  }, []);
+    return () => createItemSub.unsubscribe();
+  }, [onCreateItemCallback]);
 
-  function onCreateItemHandler() {}
+  function onCreateItemHandler(data: any) {
+    const { id, name, note, location, cost } = data.onCreateItem;
+
+    setItems((items) => [...items, { id, name, note, location, cost }]);
+  }
 
   async function fetchItems() {
     try {
       const itemsData: any = await API.graphql(graphqlOperation(listItems));
-      const items = itemsData.data.listItems.items;
+      const values = itemsData.data.listItems.items;
 
-      setItems(items);
+      setItems(values);
     } catch (error) {
       console.log('fetchItems', error);
     }

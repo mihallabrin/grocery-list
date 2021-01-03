@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -39,6 +39,7 @@ const GroceryForm = () => {
   async function submitItem(): Promise<void> {
     try {
       await API.graphql(graphqlOperation(createItem, { input: data }));
+      setData(initialState);
     } catch (error) {
       console.log('createItem', error);
     }
