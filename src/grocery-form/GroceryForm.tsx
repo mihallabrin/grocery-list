@@ -25,7 +25,9 @@ const GroceryForm = () => {
   const classes = useStyles();
   const [data, setData] = useState({ ...initialState });
 
-  async function submitItem(): Promise<void> {
+  async function submitItem(e: React.SyntheticEvent): Promise<void> {
+    e.preventDefault();
+
     try {
       await API.graphql(graphqlOperation(createItem, { input: data }));
       setData({ ...initialState });
@@ -35,7 +37,12 @@ const GroceryForm = () => {
   }
 
   return (
-    <form className={classes.root} noValidate autoComplete='off'>
+    <form
+      className={classes.root}
+      noValidate
+      autoComplete='off'
+      onSubmit={submitItem}
+    >
       <TextField
         label='Name'
         name='name'
@@ -76,7 +83,7 @@ const GroceryForm = () => {
           })
         }
       />
-      <Button variant='contained' onClick={submitItem}>
+      <Button type='submit' variant='contained' onClick={submitItem}>
         Submit
       </Button>
     </form>
