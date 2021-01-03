@@ -23,18 +23,16 @@ const initialState = {
 
 const GroceryForm = () => {
   const classes = useStyles();
-  const [data, setData] = useState(initialState);
+  const [data, setData] = useState({ ...initialState });
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    event.preventDefault();
-
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const snapshot: any = data;
     const name = event.target.name;
     const value = event.target.value;
 
     snapshot[name] = value;
     setData(snapshot);
-  }
+  };
 
   async function submitItem(): Promise<void> {
     try {
@@ -50,26 +48,42 @@ const GroceryForm = () => {
       <TextField
         label='Name'
         name='name'
-        defaultValue={data.name}
-        onChange={handleChange}
+        value={data.name}
+        onChange={(e) =>
+          setData((prevState) => {
+            return { ...prevState, name: e.target.value };
+          })
+        }
       />
       <TextField
         label='Note'
         name='note'
-        defaultValue={data.note}
-        onChange={handleChange}
+        value={data.note}
+        onChange={(e) =>
+          setData((prevState) => {
+            return { ...prevState, note: e.target.value };
+          })
+        }
       />
       <TextField
         label='Location'
         name='location'
-        defaultValue={data.location}
-        onChange={handleChange}
+        value={data.location}
+        onChange={(e) =>
+          setData((prevState) => {
+            return { ...prevState, location: e.target.value };
+          })
+        }
       />
       <TextField
         label='Cost'
         name='cost'
-        defaultValue={data.cost}
-        onChange={handleChange}
+        value={data.cost}
+        onChange={(e) =>
+          setData((prevState) => {
+            return { ...prevState, cost: parseFloat(e.target.value) };
+          })
+        }
       />
       <Button variant='contained' onClick={submitItem}>
         Submit
