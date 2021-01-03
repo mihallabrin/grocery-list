@@ -24,7 +24,7 @@ const GroceryList = () => {
     <div>
       <div>Grocery List</div>
       {items.map((item) => (
-        <div>{item.name}</div>
+        <div key={item.id}>{item.name}</div>
       ))}
     </div>
   );
